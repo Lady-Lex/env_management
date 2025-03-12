@@ -21,6 +21,7 @@
 #include "dfsdm.h"
 #include "i2c.h"
 #include "quadspi.h"
+#include "rtc.h"
 #include "spi.h"
 #include "usart.h"
 #include "usb_otg.h"
@@ -38,7 +39,16 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+extern UART_HandleTypeDef hDiscoUart;
+#ifdef __GNUC__
+/* With GCC/RAISONANCE, small msg_info (option LD Linker->Libraries->Small msg_info
+   set to 'Yes') calls __io_putchar() */
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#define GETCHAR_PROTOTYPE int __io_getchar(void)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#define GETCHAR_PROTOTYPE int fgetc(FILE *f)
+#endif /* __GNUC__ */
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -99,8 +109,33 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
+  MX_RTC_Init();
   /* USER CODE BEGIN 2 */
+  HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 1000, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
 
+  BSP_LED_Init(LED2); 
+  
+  /* Configure the User Button in GPIO Mode */
+  BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
+  
+  /* Initialize all configured peripherals */
+  hDiscoUart.Instance = DISCOVERY_COM1; 
+  hDiscoUart.Init.BaudRate = 115200;
+  hDiscoUart.Init.WordLength = UART_WORDLENGTH_8B;
+  hDiscoUart.Init.StopBits = UART_STOPBITS_1;
+  hDiscoUart.Init.Parity = UART_PARITY_NONE;
+  hDiscoUart.Init.Mode = UART_MODE_TX_RX;
+  hDiscoUart.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  hDiscoUart.Init.OverSampling = UART_OVERSAMPLING_16;
+  hDiscoUart.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  hDiscoUart.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+
+  BSP_COM_Init(COM1, &hDiscoUart);
+  
+  printf("Press User button to put LED2 ON \n");
+  while(BSP_PB_GetState(BUTTON_USER) == GPIO_PIN_RESET);
+  while(BSP_PB_GetState(BUTTON_USER) == GPIO_PIN_SET);
+  BSP_LED_On(LED2);  
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -138,8 +173,10 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE|RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_LSE
+                              |RCC_OSCILLATORTYPE_MSI;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
   RCC_OscInitStruct.MSICalibrationValue = 0;
   RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
@@ -175,6 +212,49 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc) {
+    static uint32_t last_tick = 0;
+    uint32_t now = HAL_GetTick();
+    uint32_t interval = now - last_tick;
+    last_tick = now;
+
+    printf("RTC WakeUp Triggered! Interval: %lu ms\n", interval);
+
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+}
+
+/**
+  * @brief Retargets the C library msg_info function to the USART.
+  * @param None
+  * @retval None
+  */
+PUTCHAR_PROTOTYPE
+{
+  /* Place your implementation of fputc here */
+  /* e.g. write a character to the serial port and Loop until the end of transmission */
+  while (HAL_OK != HAL_UART_Transmit(&hDiscoUart, (uint8_t *) &ch, 1, 30000))
+  {
+    ;
+  }
+  return ch;
+}
+
+/**
+  * @brief Retargets the C library scanf function to the USART.
+  * @param None
+  * @retval None
+  */
+GETCHAR_PROTOTYPE
+{
+  /* Place your implementation of fgetc here */
+  /* e.g. readwrite a character to the USART2 and Loop until the end of transmission */
+  uint8_t ch = 0;
+  while (HAL_OK != HAL_UART_Receive(&hDiscoUart, (uint8_t *)&ch, 1, 30000))
+  {
+    ;
+  }
+  return ch;
+}
 
 /* USER CODE END 4 */
 
