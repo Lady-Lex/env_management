@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>4</fileVersion>
+    <fileChecksum>4063436704</fileChecksum>
+    <configuration>
+        <name>env_management</name>
+        <outputs>
+            <file>$PROJ_DIR$\..\Core\Src\sensors.c</file>
+            <file>$PROJ_DIR$\startup_stm32l475xx.s</file>
+            <file>$PROJ_DIR$\..\Core\Src\main.c</file>
+            <file>$PROJ_DIR$\..\Core\Src\usart.c</file>
+            <file>$PROJ_DIR$\..\Core\Src\stm32l4xx_it.c</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_gyro.c</file>
+            <file>$PROJ_DIR$\..\Core\Src\gpio.c</file>
+            <file>$PROJ_DIR$\..\Core\Src\qspi.c</file>
+            <file>$PROJ_DIR$\..\Core\Src\usb_otg.c</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_hsensor.c</file>
+            <file>$PROJ_DIR$\..\Core\Src\dfsdm.c</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_hsensor.h</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01.c</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_magneto.c</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_psensor.h</file>
+            <file>$PROJ_DIR$\..\Core\Src\stm32l4xx_hal_msp.c</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_accelero.h</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_gyro.h</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01.h</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_psensor.c</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_accelero.c</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_magneto.h</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_qspi.c</file>
+            <file>$PROJ_DIR$\..\Core\Src\i2c.c</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_qspi.h</file>
+            <file>$PROJ_DIR$\..\Core\Src\quadspi.c</file>
+            <file>$PROJ_DIR$\..\Core\Src\spi.c</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\lsm6dsl\lsm6dsl.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc_ex.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dfsdm.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_spi.c</file>
+            <file>$PROJ_DIR$\..\Core\Src\system_stm32l4xx.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma_ex.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_i2c_ex.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim.c</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\lis3mdl\lis3mdl.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_flash_ex.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_flash.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_flash_ramfunc.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_exti.c</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\hts221\hts221.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_spi_ex.c</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_tsensor.c</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\lps22hb\lps22hb.c</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\hts221\hts221.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_cortex.c</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_tsensor.h</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\lis3mdl\lis3mdl.h</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\lps22hb\lps22hb.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_gpio.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_i2c.c</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\lsm6dsl\lsm6dsl.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr_ex.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_qspi.c</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_tim.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_exti.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\hts221.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\lps22hb.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_qspi.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\sensors.o</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_qspi.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_spi.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_cortex.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\gpio.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_tsensor.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_i2c.h</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\Components\lis3mdl\lis3mdl.h</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_accelero.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_tim_ex.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pwr_ex.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_psensor.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_uart.o</file>
+            <file>$PROJ_DIR$\..\Core\Inc\dfsdm.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_rcc_ex.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\main.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_flash_ramfunc.pbi</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\Components\Common\tsensor.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_tsensor.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_it.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\hts221.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_ll_usb.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_gyro.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_flash.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_rcc.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_spi_ex.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\usart.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pwr_ex.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\iccarm_builtin.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_rtc_ex.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\stddef.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\qspi.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_gpio.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\mx25r6435f\mx25r6435f.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_pcd_ex.h</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\Common\hsensor.h</file>
+            <file>$PROJ_DIR$\..\Core\Inc\gpio.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\qspi.o</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\Common\magneto.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_rcc_ex.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_spi_ex.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash_ramfunc.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_flash_ex.__cstat.et</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\Components\Common\hsensor.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\system_stm32l4xx.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pcd.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\usart.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\CMSIS\Include\cmsis_version.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_dma_ex.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\CMSIS\Include\cmsis_compiler.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\hts221.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_hsensor.o</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_tsensor.h</file>
+            <file>$PROJ_DIR$\..\Core\Inc\quadspi.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_i2c_ex.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\quadspi.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash_ex.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_gpio.o</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\Components\mx25r6435f\mx25r6435f.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_dma.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_uart_ex.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_ll_usb.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_accelero.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_accelero.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_tim_ex.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\Common\psensor.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_qspi.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\lps22hb.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pwr.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_pwr.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_i2c.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_rcc.o</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_qspi.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_hsensor.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_rtc.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\dfsdm.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_tim.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_uart_ex.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_spi_ex.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_ll_usb.o</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\Common\gyro.h</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_gyro.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_exti.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\sensors.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pcd.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\lsm6dsl.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Core\Inc\i2c.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_i2c.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_rcc_ex.o</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\Common\tsensor.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\lis3mdl.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_msp.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_i2c_ex.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_rcc.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_uart.__cstat.et</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\Components\hts221\hts221.h</file>
+            <file>$PROJ_DIR$\..\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h</file>
+            <file>$PROJ_DIR$\env_management\Exe\env_management.hex</file>
+            <file>$PROJ_DIR$\env_management\Obj\dfsdm.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rtc.c</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_magneto.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_uart_ex.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_flash.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pwr.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_exti.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_rcc_ex.pbi</file>
+            <file>$PROJ_DIR$\..\Core\Inc\usart.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\quadspi.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rtc_ex.c</file>
+            <file>$PROJ_DIR$\env_management\Obj\i2c.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_magneto.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_flash_ramfunc.o</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_gpio_ex.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_dfsdm.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\main.__cstat.et</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\Components\lps22hb\lps22hb.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\i2c.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_msp.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_accelero.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_spi.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_i2c.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_flash.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_psensor.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_dfsdm.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_flash_ex.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_gyro.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_flash_ex.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_gpio.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_qspi.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_uart.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_magneto.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Core\Src\rtc.c</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_tim.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_exti.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h</file>
+            <file>$PROJ_DIR$\..\Drivers\CMSIS\Device\ST\STM32L4xx\Include\stm32l475xx.h</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_psensor.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_def.h</file>
+            <file>$PROJ_DIR$\..\Core\Inc\spi.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\system_stm32l4xx.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pwr_ex.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_i2c_ex.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Exe\env_management.out</file>
+            <file>$PROJ_DIR$\env_management\Obj\sensors.pbi</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\Components\Common\accelero.h</file>
+            <file>$PROJ_DIR$\..\Drivers\CMSIS\Include\cmsis_iccarm.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\gpio.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\Components\Common\accelero.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_i2c_ex.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_dfsdm.h</file>
+            <file>$PROJ_DIR$\..\Drivers\CMSIS\Device\ST\STM32L4xx\Include\stm32l4xx.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pwr.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\spi.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\usb_otg.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_it.__cstat.et</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\Components\Common\psensor.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_spi.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Core\Inc\usb_otg.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\rtc.__cstat.et</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\Components\Common\gyro.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\usb_otg.o</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\Components\lsm6dsl\lsm6dsl.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_rcc.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pcd_ex.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_tsensor.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_dma_ex.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\usb_otg.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\gpio.o</file>
+            <file>$PROJ_DIR$\..\Core\Inc\main.h</file>
+            <file>$PROJ_DIR$\..\Core\Inc\stm32l4xx_it.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_psensor.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_dma.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_it.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\CMSIS\Include\mpu_armv7.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_magneto.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\lis3mdl.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_tim_ex.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_flash_ramfunc.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_dma.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Core\Inc\stm32l4xx_hal_conf.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_cortex.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\i2c.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_dma.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_uart.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01.o</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\lis3mdl.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\system_stm32l4xx.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pcd_ex.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\lsm6dsl.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\spi.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_cortex.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_dfsdm.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_hsensor.__cstat.et</file>
+            <file>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\Components\Common\magneto.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_uart_ex.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\lsm6dsl.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_qspi.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\dfsdm.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_dma_ex.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart.c</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pcd_ex.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_ll_usb.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pcd_ex.c</file>
+            <file>$PROJ_DIR$\env_management\Obj\spi.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart_ex.c</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pcd.c</file>
+            <file>$PROJ_DIR$\..\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_hsensor.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\quadspi.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\lps22hb.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_spi.o</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_pwr_ex.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_cortex.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_pcd.h</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim_ex.c</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_qspi.__cstat.et</file>
+            <file>$PROJ_DIR$\..\Drivers\CMSIS\Include\core_cm4.h</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_pcd.pbi</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_gyro.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l475e_iot01_qspi.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\startup_stm32l475xx.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\qspi.__cstat.et</file>
+            <file>$PROJ_DIR$\env_management\Obj\usart.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_gpio.pbi</file>
+            <file>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_ll_usb.c</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_msp.o</file>
+            <file>$PROJ_DIR$\env_management\Obj\stm32l4xx_hal_spi_ex.o</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 218</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\sensors.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 155</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 219</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 154 289 118 202 138 227 146 150 225 140 226 69 65 177 107 100 51 173 285 256 239 259 268 210 291 64 260 115 128 221 213 123 148 162 272 71 153 212 142 104 95 295 113 134 87 165 280 152 245 262 211 169 250 93 186 106 99 89 54 223 50 103 43 133 98</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\startup_stm32l475xx.s</name>
+            <outputs>
+                <tool>
+                    <name>AARM</name>
+                    <file> 299</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\main.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 188</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 90</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 71 262 213 165 225 212 107 150 103 177 153 142 211 169 113 146 134 87 272 280 43 162 173 118 285 140 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 295 115 128 221 123 289 148 152 50 100 245 250 93 186 106 99 89 54 223 51 133 98</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\usart.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 91</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 112</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 142 211 213 177 165 225 153 169 107 150 103 245 71 212 262 113 146 134 87 272 280 43 162 173 118 285 140 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 295 115 128 221 123 289 148 152 50 100 180 250 93 186 106 99 89 54 223 51 133 98</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\stm32l4xx_it.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 231</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 249</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 223 153 93 213 169 250 186 54 51 177 142 211 146 98 71 212 262 107 150 225 246 173 118 285 140 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 295 106 99 89 162 133 245 113 115 134 87 128 221 272 123 165 280 289 148 152 50 103 43 100</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_gyro.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 85</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 200</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 291 213 128 177 239 268 260 150 123 148 256 259 210 64 227 115 221 238 202 226 154 69 138 65 104 95 295 146 107 289 18 262 211 169 113 134 87 272 165 280 236 17 250 93 186 106 99 89 220</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 222</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 67</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 226 65 295 213 173 69 95 165 225 285 202 154 138 104 107 150 103 177 118 140 256 239 259 268 210 291 64 260 227 113 146 134 87 272 280 43 162 245 71 153 212 142 262 211 169 115 128 221 123 289 148 152 50 100 101 250 93 186 106 99 89 54 223 51 133 98</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\qspi.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 300</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 96</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 291 118 239 213 268 260 150 165 225 140 256 259 210 64 227 177 107 103 173 285 202 226 154 69 138 65 104 95 295 113 146 134 87 272 280 43 162 71 153 212 142 262 211 169 115 128 221 123 289 148 152 50 100 245 250 93 186 106 99 89 54 223 51 133 98</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\usb_otg.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 230</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 243</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 212 213 245 165 225 71 262 107 150 103 177 153 142 211 169 113 146 134 87 272 280 43 162 173 118 285 140 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 295 115 128 221 123 289 148 152 50 100 234 250 93 186 106 99 89 54 223 51 133 98</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_hsensor.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 270</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 143</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 169 213 168 115 221 211 128 123 148 80 177 262 146 107 289 18 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 295 150 113 134 87 272 165 280 11 250 93 186 106 99 89 109</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\dfsdm.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 145</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 171</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 291 118 239 213 268 260 150 165 225 140 256 259 210 64 227 177 107 103 173 285 202 226 154 69 138 65 104 95 295 113 146 134 87 272 280 43 162 245 71 153 212 142 262 211 169 115 128 221 123 289 148 152 50 100 76 250 93 186 106 99 89 54 223 51 133 98</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 158</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 194</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 211 289 213 146 169 107 262 115 128 221 123 148 177 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 295 150 113 134 87 272 165 280 18 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_magneto.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 205</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 251</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 154 134 150 146 202 138 104 18 256 226 69 65 95 295 113 87 272 280 213 239 259 268 210 291 64 260 227 177 107 165 70 262 211 169 115 128 221 123 289 148 21 250 93 186 106 99 89 271</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\stm32l4xx_hal_msp.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 164</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 191</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 169 213 153 165 225 177 142 211 107 150 103 71 212 262 113 146 134 87 272 280 43 162 173 118 285 140 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 295 115 128 221 123 289 148 152 50 100 245 250 93 186 106 99 89 54 223 51 133 98</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_psensor.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 247</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 197</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 169 213 189 107 211 165 177 262 113 146 134 87 150 272 280 18 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 295 115 128 221 123 289 148 80 14 250 93 186 106 99 89 232</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_accelero.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 130</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 192</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 291 213 128 177 239 268 260 150 123 148 256 259 210 64 227 115 221 238 202 226 154 69 138 65 104 95 295 146 107 289 18 262 211 169 113 134 87 272 165 280 236 16 250 93 186 106 99 89 220</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_qspi.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 294</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 135</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 259 213 64 177 128 210 227 123 148 239 268 291 260 150 115 221 125 256 202 226 154 69 138 65 104 95 295 146 107 289 262 211 169 113 134 87 272 165 280 24 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\i2c.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 190</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 258</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 69 173 95 213 226 65 295 165 225 285 202 154 138 104 107 150 103 177 118 140 256 239 259 268 210 291 64 260 227 113 146 134 87 272 280 43 162 245 71 153 212 142 262 211 169 115 128 221 123 289 148 152 50 100 159 250 93 186 106 99 89 54 223 51 133 98</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\quadspi.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 181</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 122</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 210 225 227 256 213 140 259 64 177 165 118 239 268 291 260 150 107 103 173 285 202 226 154 69 138 65 104 95 295 113 146 134 87 272 280 43 162 245 71 153 212 142 262 211 169 115 128 221 123 289 148 152 50 100 119 250 93 186 106 99 89 54 223 51 133 98</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\spi.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 282</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 267</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 245 213 212 165 225 71 262 107 150 103 177 153 142 211 169 113 146 134 87 272 280 43 162 173 118 285 140 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 295 115 128 221 123 289 148 152 50 100 214 250 93 186 106 99 89 54 223 51 133 98</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\BSP\Components\lsm6dsl\lsm6dsl.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 266</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 157</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 223 150 152 146 54 107 134 87 128</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc_ex.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 77</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 179</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 211 87 213 272 280 169 146 134 150 262 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 255</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 248</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 226 113 256 65 295 87 69 95 272 280 213 202 154 138 104 146 134 150 239 259 268 210 291 64 260 227 177 107 165 262 211 169 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 120</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 209</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 211 87 213 272 280 169 146 134 150 262 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dfsdm.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 187</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 198</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 87 262 272 280 213 146 134 150 211 169 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_spi.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 233</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 193</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 289 154 202 138 104 146 226 69 65 95 295 107 256 239 259 268 210 291 64 260 227 177 150 115 128 221 213 123 148 262 211 169 113 134 87 272 165 280 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\system_stm32l4xx.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 264</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 110</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 211 107 272 280 213 169 113 146 134 87 150 165 177 295 115 128 221 262 123 289 148 227 250 93 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 95 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma_ex.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 114</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 277</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 211 87 213 272 280 169 146 134 150 262 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_i2c_ex.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 217</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 224</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 239 113 291 87 268 260 150 272 280 213 259 210 64 227 177 146 134 256 202 226 154 69 138 65 104 95 295 107 165 262 211 169 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 207</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 147</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 211 87 213 272 280 169 146 134 150 262 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\BSP\Components\lis3mdl\lis3mdl.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 263</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 252</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 128 103 146 150 107 134 87 50</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_flash_ex.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 108</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 201</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 87 272 280 213 262 146 134 150 211 169 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 137</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 176</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 169 87 272 280 213 211 146 134 150 262 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_flash.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 86</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 175</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 169 87 272 280 213 211 146 134 150 262 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_flash_ramfunc.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 254</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 79</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 69 95 87 256 226 65 295 272 280 213 202 154 138 104 146 134 150 239 259 268 210 291 64 260 227 177 107 165 262 211 169 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_exti.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 59</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 178</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 87 272 280 213 262 146 134 150 211 169 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_spi_ex.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 149</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 105</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 210 227 87 259 64 177 272 280 213 239 268 291 260 150 146 134 256 202 226 154 69 138 65 104 95 295 107 165 262 211 169 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>C:\Users\Lexington\STM32Cube\Repository\STM32Cube_FW_L4_V1.18.1\Drivers\BSP\B-L475E-IOT01\stm32l475e_iot01_tsensor.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 81</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 68</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 213 177 115 221 262 128 123 148 80 168 211 169 146 107 289 18 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 295 150 113 134 87 272 165 280 49 250 93 186 106 99 89 109</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\BSP\Components\lps22hb\lps22hb.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 287</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 61</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 150 133 87 162 146 128 51 107 134</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\BSP\Components\hts221\hts221.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 83</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 60</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 146 100 150 87 162 107 128 43 134</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_cortex.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 257</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 290</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 210 227 87 259 64 177 272 280 213 239 268 291 260 150 146 134 256 202 226 154 69 138 65 104 95 295 107 165 262 211 169 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 97</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 302</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 150 260 113 268 87 239 291 272 280 213 259 210 64 227 177 146 134 256 202 226 154 69 138 65 104 95 295 107 165 262 211 169 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_i2c.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 160</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 139</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 289 239 291 268 260 227 146 256 259 210 64 177 107 202 226 154 69 138 65 150 115 128 221 213 123 148 104 95 295 113 134 87 272 165 280 262 211 169 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr_ex.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 216</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 92</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 262 113 87 272 280 213 146 134 150 211 169 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 166</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 88</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 259 113 64 177 87 210 227 272 280 213 239 268 291 260 150 146 134 256 202 226 154 69 138 65 104 95 295 107 165 262 211 169 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_qspi.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 62</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 275</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 262 87 272 280 213 146 134 150 211 169 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rtc.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 144</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rtc_ex.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 94</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Core\Src\rtc.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 235</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\env_management\Exe\env_management.out</name>
+            <outputs>
+                <tool>
+                    <name>OBJCOPY</name>
+                    <file> 170</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 167</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 204</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 87 169 272 280 213 211 146 134 150 262 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pcd_ex.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 240</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 279</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 289 291 239 268 260 150 146 256 259 210 64 227 177 107 202 226 154 69 138 65 104 95 295 115 128 221 213 123 148 262 211 169 113 134 87 272 165 280 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart_ex.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 174</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 273</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 260 150 268 87 239 291 272 280 213 259 210 64 227 177 146 134 256 202 226 154 69 138 65 104 95 295 107 165 262 211 169 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pcd.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 111</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 296</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 87 272 280 213 262 146 134 150 211 169 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim_ex.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 132</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 72</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 211 87 213 272 280 169 146 134 150 262 107 165 256 239 202 259 226 268 154 210 69 291 138 64 65 260 104 227 95 177 295 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_ll_usb.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 129</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 84</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 202 104 113 138 87 154 272 280 213 256 226 69 65 95 295 146 134 150 239 259 268 210 291 64 260 227 177 107 165 262 211 169 115 128 221 123 289 148 250 93 186 106 99 89</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+</project>
