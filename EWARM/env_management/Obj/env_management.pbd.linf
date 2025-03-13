@@ -1,13 +1,15 @@
 ﻿D:\stm32_workspace\env_management\EWARM\env_management\Obj\env_management.pbd
+D:\stm32_workspace\env_management\EWARM\env_management\Obj\actor.pbi
 D:\stm32_workspace\env_management\EWARM\env_management\Obj\dfsdm.pbi
 D:\stm32_workspace\env_management\EWARM\env_management\Obj\fifo.pbi
 D:\stm32_workspace\env_management\EWARM\env_management\Obj\gpio.pbi
 D:\stm32_workspace\env_management\EWARM\env_management\Obj\i2c.pbi
+D:\stm32_workspace\env_management\EWARM\env_management\Obj\log.pbi
 D:\stm32_workspace\env_management\EWARM\env_management\Obj\main.pbi
 D:\stm32_workspace\env_management\EWARM\env_management\Obj\qspi.pbi
 D:\stm32_workspace\env_management\EWARM\env_management\Obj\quadspi.pbi
 D:\stm32_workspace\env_management\EWARM\env_management\Obj\rtc.pbi
-D:\stm32_workspace\env_management\EWARM\env_management\Obj\sensors.pbi
+D:\stm32_workspace\env_management\EWARM\env_management\Obj\sensor.pbi
 D:\stm32_workspace\env_management\EWARM\env_management\Obj\spi.pbi
 D:\stm32_workspace\env_management\EWARM\env_management\Obj\stm32l4xx_hal_msp.pbi
 D:\stm32_workspace\env_management\EWARM\env_management\Obj\stm32l4xx_it.pbi

@@ -1,4 +1,5 @@
 #include "fifo.h"
+#include "log.h"
 #include <string.h>  // 用于 memset
 
 // 初始化 FIFO
@@ -9,11 +10,13 @@ void FIFO_Init(FIFO_Buffer *fifo) {
 // 向 FIFO 添加数据（入队）
 bool FIFO_Push(FIFO_Buffer *fifo, SensorData data) {
     if (fifo->count >= FIFO_SIZE) {
+        missed_updates += 1;  
         return false;  // FIFO 满
     }
     fifo->buffer[fifo->tail] = data;
     fifo->tail = (fifo->tail + 1) % FIFO_SIZE;
     fifo->count++;
+    total_sensor_reads += 1;
     return true;
 }
 

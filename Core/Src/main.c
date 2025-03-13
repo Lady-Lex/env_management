@@ -59,11 +59,31 @@ extern UART_HandleTypeDef hDiscoUart;
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+FIFO_Buffer pressure_fifo;
+FIFO_Buffer temperature_fifo;
+FIFO_Buffer humidity_fifo;
+FIFO_Buffer accel_fifo;
+FIFO_Buffer gyro_fifo;
+FIFO_Buffer mag_fifo;
 
+volatile uint8_t temp_alarm = 0;
+volatile uint8_t humidity_alarm = 0;
+volatile uint8_t pressure_alarm = 0;
+volatile uint8_t accel_alarm = 0;
+volatile uint8_t gyro_alarm = 0;
+volatile uint8_t mag_alarm = 0;
+
+volatile uint32_t temp_trigger_time = 0;
+volatile uint32_t humidity_trigger_time = 0;
+volatile uint32_t pressure_trigger_time = 0;
+volatile uint32_t accel_trigger_time = 0;
+volatile uint32_t gyro_trigger_time = 0;
+volatile uint32_t mag_trigger_time = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void alarm_response(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -110,8 +130,16 @@ int main(void)
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   MX_RTC_Init();
+
   /* USER CODE BEGIN 2 */
-  HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 1000, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
+  BSP_PSENSOR_Init();
+  BSP_TSENSOR_Init();
+  BSP_HSENSOR_Init();
+  BSP_ACCELERO_Init();
+  BSP_GYRO_Init();
+  BSP_MAGNETO_Init();
+
+  HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 1024, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
 
   BSP_LED_Init(LED2); 
   
@@ -142,8 +170,52 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    log_missed_percentage();
     /* USER CODE END WHILE */
+    printf("--------------------------------------------\n");
+    alarm_response();
 
+    SensorData data;
+
+    // 随机从 FIFO 读取数据
+    int random_fifo = rand() % 6;
+    switch (random_fifo) {
+        case 0:
+            if (FIFO_Pop(&pressure_fifo, &data)) {
+                log_sensor_event("Pressure", data.value[0], data.timestamp);
+            }
+            break;
+        case 1:
+            if (FIFO_Pop(&temperature_fifo, &data)) {
+                log_sensor_event("Temperature", data.value[0], data.timestamp);
+            }
+            break;
+        case 2:
+            if (FIFO_Pop(&humidity_fifo, &data)) {
+                log_sensor_event("Humidity", data.value[0], data.timestamp);
+            }
+            break;
+        case 3:
+            if (FIFO_Pop(&accel_fifo, &data)) {
+                log_sensor_event("Acceleration", data.value[0], data.timestamp);
+            }
+            break;
+        case 4:
+            if (FIFO_Pop(&gyro_fifo, &data)) {
+                log_sensor_event("Gyroscope", data.value[0], data.timestamp);
+            }
+            break;
+        case 5:
+            if (FIFO_Pop(&mag_fifo, &data)) {
+                log_sensor_event("Magnetometer", data.value[0], data.timestamp);
+            }
+            break;
+    }
+
+    log_missed_percentage();
+    log_average_latency();
+
+    HAL_Delay(500); 
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -173,10 +245,8 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_LSE
-                              |RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE|RCC_OSCILLATORTYPE_MSI;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
-  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
   RCC_OscInitStruct.MSICalibrationValue = 0;
   RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
@@ -213,15 +283,147 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc) {
-    static uint32_t last_tick = 0;
-    uint32_t now = HAL_GetTick();
-    uint32_t interval = now - last_tick;
-    last_tick = now;
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9); // LED 触发，表示 RTC 运行
 
-    printf("RTC WakeUp Triggered! Interval: %lu ms\n", interval);
+    SensorData data;
 
-    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+    // **温度数据**
+    data = get_Temperature();
+    if (data.value[0] >= TEMPERATURE_UPPER_THRESHOLD) {
+      if (temp_alarm != 1)  {
+        temp_alarm = 1;  // 过高
+        temp_trigger_time = HAL_GetTick();
+      }
+    } else if (data.value[0] <= TEMPERATURE_LOWER_THRESHOLD) {
+      if (temp_alarm != 2) {
+        temp_alarm = 2;  // 过低
+        temp_trigger_time = HAL_GetTick();
+      }
+    } else {
+        FIFO_Push(&temperature_fifo, data);
+    }
+
+    // **湿度数据**
+    data = get_Humidity();
+    if (data.value[0] >= HUMIDITY_UPPER_THRESHOLD) {
+        if (humidity_alarm != 1) {
+            humidity_alarm = 1;  // 过湿
+            humidity_trigger_time = HAL_GetTick();
+        }
+    } else if (data.value[0] <= HUMIDITY_LOWER_THRESHOLD) {
+        if (humidity_alarm != 2) {
+            humidity_alarm = 2;  // 过干
+            humidity_trigger_time = HAL_GetTick();
+        }
+    } else {
+        FIFO_Push(&humidity_fifo, data);
+    }
+
+    // **压力数据**
+    data = get_Pressure();
+    if (data.value[0] >= PRESSURE_UPPER_THRESHOLD) {
+        if (pressure_alarm != 1) {
+            pressure_alarm = 1;  // 过高
+            pressure_trigger_time = HAL_GetTick();
+        }
+    } else if (data.value[0] <= PRESSURE_LOWER_THRESHOLD) {
+        if (pressure_alarm != 2) {
+            pressure_alarm = 2;  // 过低
+            pressure_trigger_time = HAL_GetTick();
+        }
+    } else {
+        FIFO_Push(&pressure_fifo, data);
+    }
+
+    // **加速度数据**
+    data = get_Acceleration();
+    if (data.value[0] >= ACCELERATION_THRESHOLD || data.value[1] >= ACCELERATION_THRESHOLD || data.value[2] >= ACCELERATION_THRESHOLD) {
+        if (accel_alarm != 1) {
+            accel_alarm = 1;  // 过高振动
+            accel_trigger_time = HAL_GetTick();
+        }
+    } else {
+        FIFO_Push(&accel_fifo, data);
+    }
+
+    // **陀螺仪数据**
+    data = get_Gyroscope();
+    if (data.value[0] >= GYROSCOPE_THRESHOLD || data.value[1] >= GYROSCOPE_THRESHOLD || data.value[2] >= GYROSCOPE_THRESHOLD) {
+        if (gyro_alarm != 1) {
+            gyro_alarm = 1;  // 不稳定旋转
+            gyro_trigger_time = HAL_GetTick();
+        }
+    } else {
+        FIFO_Push(&gyro_fifo, data);
+    }
+
+    // **磁力计数据**
+    data = get_Magnetometer();
+    if (data.value[0] >= MAGNETIC_FIELD_THRESHOLD || data.value[1] >= MAGNETIC_FIELD_THRESHOLD || data.value[2] >= MAGNETIC_FIELD_THRESHOLD) {
+        if (mag_alarm != 1) {
+            mag_alarm = 1;  // 强磁场
+            mag_trigger_time = HAL_GetTick();
+        }
+    } else {
+        FIFO_Push(&mag_fifo, data);
+    }
 }
+
+
+void alarm_response(void) {
+    if (temp_alarm == 1) {
+        printf("[ALERT] Temperature too HIGH! Cooling activated.\n");
+        log_response_delay(temp_trigger_time, "HIGH Temperature");
+        process_control_actions(0);
+        temp_alarm = 0;  // 清除报警
+    } else if (temp_alarm == 2) {
+        printf("[ALERT] Temperature too LOW! No action required.\n");
+        log_response_delay(temp_trigger_time, "LOW Temperature");
+        temp_alarm = 0;
+    }
+
+    if (humidity_alarm == 1) {
+        printf("[ALERT] Humidity too HIGH! No action required.\n");
+        log_response_delay(humidity_trigger_time, "HIGH Humidity");
+        humidity_alarm = 0;
+    } else if (humidity_alarm == 2) {
+        printf("[ALERT] Humidity too LOW! Humidifier activated.\n");
+        log_response_delay(humidity_trigger_time, "LOW Humidity");
+        process_control_actions(1);
+        humidity_alarm = 0;
+    }
+
+    if (pressure_alarm == 1) {
+        printf("[ALERT] Pressure too HIGH!\n");
+        log_response_delay(pressure_trigger_time, "HIGH Pressure");
+        pressure_alarm = 0;
+    } else if (pressure_alarm == 2) {
+        printf("[ALERT] Pressure too LOW!\n");
+        log_response_delay(pressure_trigger_time, "LOW Pressure");
+        pressure_alarm = 0;
+    }
+
+    if (accel_alarm == 1) {
+        printf("[ALERT] High Vibration Detected! Alarm triggered.\n");
+        log_response_delay(accel_trigger_time, "High Vibration");
+        process_control_actions(2);
+        accel_alarm = 0;
+    }
+
+    if (gyro_alarm == 1) {
+        printf("[ALERT] Unstable Rotation Detected!\n");
+        log_response_delay(gyro_trigger_time, "Unstable Rotation");
+        process_control_actions(2);
+        gyro_alarm = 0;
+    }
+
+    if (mag_alarm == 1) {
+        printf("[ALERT] Strong Magnetic Field Detected!\n");
+        log_response_delay(mag_trigger_time, "Strong Magnetic Field");
+        mag_alarm = 0;
+    }
+}
+
 
 /**
   * @brief Retargets the C library msg_info function to the USART.

@@ -3,16 +3,10 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "sensor.h"
 
 #define FIFO_SIZE 32  // FIFO 深度
 #define MAX_SENSOR_DIM 3  // 最大数据维度，例如 3 轴加速度
-
-// 传感器数据结构
-typedef struct {
-    float value[MAX_SENSOR_DIM];  // 允许存储 1D 或 3D 数据
-    uint8_t dim;  // 数据维度（1 代表单值，3 代表三轴）
-    uint32_t timestamp;  // 读取时间
-} SensorData;
 
 // FIFO 结构体
 typedef struct {

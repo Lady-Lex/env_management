@@ -17,7 +17,7 @@
 */
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "sensor.h"
 
 /** @addtogroup STM32L4xx_HAL_Examples
 * @{
@@ -53,7 +53,7 @@ SensorData get_Pressure(void) {
 // 获取温度数据
 SensorData get_Temperature(void) {
     SensorData data;
-    data.value[0] = BSP_TEMP_Read();  // 读取温度值
+    data.value[0] = BSP_TSENSOR_ReadTemp();  // 读取温度值
     data.dim = 1;
     data.timestamp = get_Timestamp();
     return data;
@@ -62,7 +62,7 @@ SensorData get_Temperature(void) {
 // 获取湿度数据
 SensorData get_Humidity(void) {
     SensorData data;
-    data.value[0] = BSP_HUMIDITY_Read();  // 读取湿度值
+    data.value[0] = BSP_HSENSOR_ReadHumidity();  // 读取湿度值
     data.dim = 1;
     data.timestamp = get_Timestamp();
     return data;
@@ -71,12 +71,36 @@ SensorData get_Humidity(void) {
 // 获取加速度数据（三轴）
 SensorData get_Acceleration(void) {
     SensorData data;
-    BSP_ACCEL_Read(&data.value[0], &data.value[1], &data.value[2]);  // 读取 X, Y, Z 轴加速度
+    BSP_ACCELERO_AccGetXYZ(pDataXYZ);
+    data.value[0] = pDataXYZ[0];
+    data.value[1] = pDataXYZ[1];
+    data.value[2] = pDataXYZ[2];
     data.dim = 3;  // 三轴数据
     data.timestamp = get_Timestamp();
     return data;
 }
 
+SensorData get_Gyroscope(void) {
+    SensorData data;
+    BSP_GYRO_GetXYZ(pGyroDataXYZ);
+    data.value[0] = pGyroDataXYZ[0];
+    data.value[1] = pGyroDataXYZ[1];
+    data.value[2] = pGyroDataXYZ[2];
+    data.dim = 3;
+    data.timestamp = get_Timestamp();
+    return data;
+}
+
+SensorData get_Magnetometer(void) {
+    SensorData data;
+    BSP_MAGNETO_GetXYZ(pDataXYZ);
+    data.value[0] = pDataXYZ[0];
+    data.value[1] = pDataXYZ[1];
+    data.value[2] = pDataXYZ[2];
+    data.dim = 3;
+    data.timestamp = get_Timestamp();
+    return data;
+}
 /**
 * @}
 */ 

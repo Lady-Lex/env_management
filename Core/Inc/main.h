@@ -32,15 +32,9 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "fifo.h"
-
-#include "stm32l475e_iot01.h"
-#include "stm32l475e_iot01_accelero.h"
-#include "stm32l475e_iot01_magneto.h"
-#include "stm32l475e_iot01_gyro.h"
-#include "stm32l475e_iot01_tsensor.h"
-#include "stm32l475e_iot01_psensor.h"
-#include "stm32l475e_iot01_hsensor.h"
-#include "stm32l475e_iot01_qspi.h"
+#include "sensor.h"
+#include "actor.h"
+#include "log.h"
 #include <stdio.h>
 /* USER CODE END Includes */
 
@@ -236,12 +230,12 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 void QSPI_demo(void);
 void QSPI_MemoryMapped_demo(void);
-void Temperature_Test(void);
-void Humidity_Test(void);
-void Pressure_Test(void);
-void Gyro_Test(void);
-void Magneto_Test(void);
-void Accelero_Test(void);
+// void Temperature_Test(void);
+// void Humidity_Test(void);
+// void Pressure_Test(void);
+// void Gyro_Test(void);
+// void Magneto_Test(void);
+// void Accelero_Test(void);
 
 uint32_t Serial_Scanf(uint32_t value);
 void Error_Handler(void);
