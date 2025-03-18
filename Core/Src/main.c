@@ -34,7 +34,11 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+typedef enum {
+    RANDOM_SELECTION,   // 随机选择
+    FULL_BUFFER_SELECTION, // 选择数据最多的 FIFO
+    PREDICTIVE_SELECTION  // 基于频率和占用率的预测选择
+} FIFO_Selection_Mode;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -79,11 +83,31 @@ volatile uint32_t pressure_trigger_time = 0;
 volatile uint32_t accel_trigger_time = 0;
 volatile uint32_t gyro_trigger_time = 0;
 volatile uint32_t mag_trigger_time = 0;
+
+volatile SensorData temp_alarm_data;
+volatile SensorData humidity_alarm_data;
+volatile SensorData pressure_alarm_data;
+volatile SensorData accel_alarm_data;
+volatile SensorData gyro_alarm_data;
+volatile SensorData mag_alarm_data;
+
+volatile uint8_t temp_counter = 0;
+volatile uint8_t humidity_counter = 0;
+volatile uint8_t pressure_counter = 0;
+volatile uint8_t accel_counter = 0;
+volatile uint8_t gyro_counter = 0;
+volatile uint8_t mag_counter = 0;
+
+
+FIFO_Buffer *fifo_list[] = { &pressure_fifo, &temperature_fifo, &humidity_fifo, 
+                        &accel_fifo, &gyro_fifo, &mag_fifo };
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void alarm_response(void);
+int FIFO_Select(FIFO_Selection_Mode mode);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -170,47 +194,57 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    log_missed_percentage();
     /* USER CODE END WHILE */
-    printf("--------------------------------------------\n");
+    printf("----------------------------------------------------------------\n");
     alarm_response();
 
     SensorData data;
 
     // 随机从 FIFO 读取数据
-    int random_fifo = rand() % 6;
-    switch (random_fifo) {
+    int selected_fifo = FIFO_Select(3);
+    switch (selected_fifo) {
         case 0:
             if (FIFO_Pop(&pressure_fifo, &data)) {
-                log_sensor_event("Pressure", data.value[0], data.timestamp);
+                printf("[%-11s] Pressure: %.2f hPa | Timestamp: %lu ms\n", "FIFO POP", data.value[0], data.timestamp);
+                fflush(stdout);
             }
             break;
         case 1:
             if (FIFO_Pop(&temperature_fifo, &data)) {
-                log_sensor_event("Temperature", data.value[0], data.timestamp);
+                printf("[%-11s] Temperature: %.2f °C | Timestamp: %lu ms\n", "FIFO POP", data.value[0], data.timestamp);
+                fflush(stdout);
             }
             break;
         case 2:
             if (FIFO_Pop(&humidity_fifo, &data)) {
-                log_sensor_event("Humidity", data.value[0], data.timestamp);
+                printf("[%-11s] Humidity: %.2f%% RH | Timestamp: %lu ms\n", "FIFO POP", data.value[0], data.timestamp);
+                fflush(stdout);
             }
             break;
         case 3:
             if (FIFO_Pop(&accel_fifo, &data)) {
-                log_sensor_event("Acceleration", data.value[0], data.timestamp);
+                printf("[%-11s] Acceleration: X=%.2f g, Y=%.2f g, Z=%.2f g | Timestamp: %lu ms\n", 
+                      "FIFO POP", data.value[0], data.value[1], data.value[2], data.timestamp);
+                fflush(stdout);
             }
             break;
         case 4:
             if (FIFO_Pop(&gyro_fifo, &data)) {
-                log_sensor_event("Gyroscope", data.value[0], data.timestamp);
+                printf("[%-11s] Gyroscope: X=%.2f °/s, Y=%.2f °/s, Z=%.2f °/s | Timestamp: %lu ms\n", 
+                      "FIFO POP", data.value[0], data.value[1], data.value[2], data.timestamp);
+                fflush(stdout);
             }
             break;
         case 5:
             if (FIFO_Pop(&mag_fifo, &data)) {
-                log_sensor_event("Magnetometer", data.value[0], data.timestamp);
+                printf("[%-11s] Magnetometer: X=%.2f Gauss, Y=%.2f Gauss, Z=%.2f Gauss | Timestamp: %lu ms\n", 
+                      "FIFO POP", data.value[0], data.value[1], data.value[2], data.timestamp);
+                fflush(stdout);
             }
             break;
     }
+
+
 
     log_missed_percentage();
     log_average_latency();
@@ -287,143 +321,203 @@ void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc) {
 
     SensorData data;
 
+    // **增加计数器**
+    temp_counter++;
+    humidity_counter++;
+    pressure_counter++;
+    accel_counter++;
+    gyro_counter++;
+    mag_counter++;
+
     // **温度数据**
-    data = get_Temperature();
-    if (data.value[0] >= TEMPERATURE_UPPER_THRESHOLD) {
-      if (temp_alarm != 1)  {
-        temp_alarm = 1;  // 过高
-        temp_trigger_time = HAL_GetTick();
-      }
-    } else if (data.value[0] <= TEMPERATURE_LOWER_THRESHOLD) {
-      if (temp_alarm != 2) {
-        temp_alarm = 2;  // 过低
-        temp_trigger_time = HAL_GetTick();
-      }
-    } else {
-        FIFO_Push(&temperature_fifo, data);
+    if (temp_counter * TIMER_INTERVAL_MS >= TEMP_TRIGGER_PERIOD) {
+        temp_counter = 0;  // 计数清零
+        data = get_Temperature();
+        if (data.value[0] >= TEMPERATURE_UPPER_THRESHOLD) {
+            temp_alarm = 1;
+            temp_alarm_data = data;
+            temp_trigger_time = HAL_GetTick();
+        } else if (data.value[0] <= TEMPERATURE_LOWER_THRESHOLD) {
+            temp_alarm = 2;
+            temp_alarm_data = data;
+            temp_trigger_time = HAL_GetTick();
+        } else {
+            FIFO_Push(&temperature_fifo, data);
+        }
     }
 
     // **湿度数据**
-    data = get_Humidity();
-    if (data.value[0] >= HUMIDITY_UPPER_THRESHOLD) {
-        if (humidity_alarm != 1) {
-            humidity_alarm = 1;  // 过湿
+    if (humidity_counter * TIMER_INTERVAL_MS >= HUMIDITY_TRIGGER_PERIOD) {
+        humidity_counter = 0;
+        data = get_Humidity();
+        if (data.value[0] >= HUMIDITY_UPPER_THRESHOLD) {
+            humidity_alarm = 1;
+            humidity_alarm_data = data;
             humidity_trigger_time = HAL_GetTick();
-        }
-    } else if (data.value[0] <= HUMIDITY_LOWER_THRESHOLD) {
-        if (humidity_alarm != 2) {
-            humidity_alarm = 2;  // 过干
+        } else if (data.value[0] <= HUMIDITY_LOWER_THRESHOLD) {
+            humidity_alarm = 2;
+            humidity_alarm_data = data;
             humidity_trigger_time = HAL_GetTick();
+        } else {
+            FIFO_Push(&humidity_fifo, data);
         }
-    } else {
-        FIFO_Push(&humidity_fifo, data);
     }
 
     // **压力数据**
-    data = get_Pressure();
-    if (data.value[0] >= PRESSURE_UPPER_THRESHOLD) {
-        if (pressure_alarm != 1) {
-            pressure_alarm = 1;  // 过高
+    if (pressure_counter * TIMER_INTERVAL_MS >= PRESSURE_TRIGGER_PERIOD) {
+        pressure_counter = 0;
+        data = get_Pressure();
+        if (data.value[0] >= PRESSURE_UPPER_THRESHOLD) {
+            pressure_alarm = 1;
+            pressure_alarm_data = data;
             pressure_trigger_time = HAL_GetTick();
-        }
-    } else if (data.value[0] <= PRESSURE_LOWER_THRESHOLD) {
-        if (pressure_alarm != 2) {
-            pressure_alarm = 2;  // 过低
+        } else if (data.value[0] <= PRESSURE_LOWER_THRESHOLD) {
+            pressure_alarm = 2;
+            pressure_alarm_data = data;
             pressure_trigger_time = HAL_GetTick();
+        } else {
+            FIFO_Push(&pressure_fifo, data);
         }
-    } else {
-        FIFO_Push(&pressure_fifo, data);
     }
 
     // **加速度数据**
-    data = get_Acceleration();
-    if (data.value[0] >= ACCELERATION_THRESHOLD || data.value[1] >= ACCELERATION_THRESHOLD || data.value[2] >= ACCELERATION_THRESHOLD) {
-        if (accel_alarm != 1) {
-            accel_alarm = 1;  // 过高振动
+    if (accel_counter * TIMER_INTERVAL_MS >= ACCEL_TRIGGER_PERIOD) {
+        accel_counter = 0;
+        data = get_Acceleration();
+        if (data.value[0] >= ACCELERATION_THRESHOLD || data.value[1] >= ACCELERATION_THRESHOLD || data.value[2] >= ACCELERATION_THRESHOLD) {
+            accel_alarm = 1;
+            accel_alarm_data = data;
             accel_trigger_time = HAL_GetTick();
+        } else {
+            FIFO_Push(&accel_fifo, data);
         }
-    } else {
-        FIFO_Push(&accel_fifo, data);
     }
 
     // **陀螺仪数据**
-    data = get_Gyroscope();
-    if (data.value[0] >= GYROSCOPE_THRESHOLD || data.value[1] >= GYROSCOPE_THRESHOLD || data.value[2] >= GYROSCOPE_THRESHOLD) {
-        if (gyro_alarm != 1) {
-            gyro_alarm = 1;  // 不稳定旋转
+    if (gyro_counter * TIMER_INTERVAL_MS >= GYRO_TRIGGER_PERIOD) {
+        gyro_counter = 0;
+        data = get_Gyroscope();
+        if (data.value[0] >= GYROSCOPE_THRESHOLD || data.value[1] >= GYROSCOPE_THRESHOLD || data.value[2] >= GYROSCOPE_THRESHOLD) {
+            gyro_alarm = 1;
+            gyro_alarm_data = data;
             gyro_trigger_time = HAL_GetTick();
+        } else {
+            FIFO_Push(&gyro_fifo, data);
         }
-    } else {
-        FIFO_Push(&gyro_fifo, data);
     }
 
     // **磁力计数据**
-    data = get_Magnetometer();
-    if (data.value[0] >= MAGNETIC_FIELD_THRESHOLD || data.value[1] >= MAGNETIC_FIELD_THRESHOLD || data.value[2] >= MAGNETIC_FIELD_THRESHOLD) {
-        if (mag_alarm != 1) {
-            mag_alarm = 1;  // 强磁场
+    if (mag_counter * TIMER_INTERVAL_MS >= MAG_TRIGGER_PERIOD) {
+        mag_counter = 0;
+        data = get_Magnetometer();
+        if (data.value[0] >= MAGNETIC_FIELD_THRESHOLD || data.value[1] >= MAGNETIC_FIELD_THRESHOLD || data.value[2] >= MAGNETIC_FIELD_THRESHOLD) {
+            mag_alarm = 1;
+            mag_alarm_data = data;
             mag_trigger_time = HAL_GetTick();
+        } else {
+            FIFO_Push(&mag_fifo, data);
         }
-    } else {
-        FIFO_Push(&mag_fifo, data);
     }
 }
 
 
 void alarm_response(void) {
     if (temp_alarm == 1) {
-        printf("[ALERT] Temperature too HIGH! Cooling activated.\n");
+        printf("[%-11s] Temperature too HIGH: %.2f °C! Cooling activated.\n", "ALERT", temp_alarm_data.value[0]);
         log_response_delay(temp_trigger_time, "HIGH Temperature");
         process_control_actions(0);
         temp_alarm = 0;  // 清除报警
     } else if (temp_alarm == 2) {
-        printf("[ALERT] Temperature too LOW! No action required.\n");
+        printf("[%-11s] Temperature too LOW: %.2f °C! No action required.\n", "ALERT", temp_alarm_data.value[0]);
         log_response_delay(temp_trigger_time, "LOW Temperature");
         temp_alarm = 0;
     }
 
     if (humidity_alarm == 1) {
-        printf("[ALERT] Humidity too HIGH! No action required.\n");
+        printf("[%-11s] Humidity too HIGH: %.2f%% RH! No action required.\n", "ALERT", humidity_alarm_data.value[0]);
         log_response_delay(humidity_trigger_time, "HIGH Humidity");
         humidity_alarm = 0;
     } else if (humidity_alarm == 2) {
-        printf("[ALERT] Humidity too LOW! Humidifier activated.\n");
+        printf("[%-11s] Humidity too LOW: %.2f%% RH! Humidifier activated.\n", "ALERT", humidity_alarm_data.value[0]);
         log_response_delay(humidity_trigger_time, "LOW Humidity");
         process_control_actions(1);
         humidity_alarm = 0;
     }
 
     if (pressure_alarm == 1) {
-        printf("[ALERT] Pressure too HIGH!\n");
+        printf("[%-11s] Pressure too HIGH: %.2f hPa!\n", "ALERT", pressure_alarm_data.value[0]);
         log_response_delay(pressure_trigger_time, "HIGH Pressure");
         pressure_alarm = 0;
     } else if (pressure_alarm == 2) {
-        printf("[ALERT] Pressure too LOW!\n");
+        printf("[%-11s] Pressure too LOW: %.2f hPa!\n", "ALERT", pressure_alarm_data.value[0]);
         log_response_delay(pressure_trigger_time, "LOW Pressure");
         pressure_alarm = 0;
     }
 
     if (accel_alarm == 1) {
-        printf("[ALERT] High Vibration Detected! Alarm triggered.\n");
+        printf("[%-11s] High Vibration Detected: X=%.2f g, Y=%.2f g, Z=%.2f g! Alarm triggered.\n", 
+               "ALERT", accel_alarm_data.value[0], accel_alarm_data.value[1], accel_alarm_data.value[2]);
         log_response_delay(accel_trigger_time, "High Vibration");
         process_control_actions(2);
         accel_alarm = 0;
     }
 
     if (gyro_alarm == 1) {
-        printf("[ALERT] Unstable Rotation Detected!\n");
+        printf("[%-11s] Unstable Rotation Detected: X=%.2f °/s, Y=%.2f °/s, Z=%.2f °/s! Alarm triggered.\n", 
+               "ALERT", gyro_alarm_data.value[0], gyro_alarm_data.value[1], gyro_alarm_data.value[2]);
         log_response_delay(gyro_trigger_time, "Unstable Rotation");
         process_control_actions(2);
         gyro_alarm = 0;
     }
 
     if (mag_alarm == 1) {
-        printf("[ALERT] Strong Magnetic Field Detected!\n");
+        printf("[%-11s] Strong Magnetic Field Detected: X=%.2f Gauss, Y=%.2f Gauss, Z=%.2f Gauss!\n", 
+               "ALERT", mag_alarm_data.value[0], mag_alarm_data.value[1], mag_alarm_data.value[2]);
         log_response_delay(mag_trigger_time, "Strong Magnetic Field");
         mag_alarm = 0;
     }
 }
 
+
+int FIFO_Select(FIFO_Selection_Mode mode) {
+    int selected_fifo = 0;
+    int max_size = 0;
+    
+    switch (mode) {
+        case RANDOM_SELECTION:
+            selected_fifo = rand() % 6;  // 生成 0~5 的随机数
+            break;
+
+        case FULL_BUFFER_SELECTION:
+            for (int i = 0; i < 6; i++) {
+                int current_size = FIFO_GetUsage(fifo_list[i]); // 获取当前 FIFO 数据量
+                if (current_size > max_size) {
+                    max_size = current_size;
+                    selected_fifo = i;
+                }
+            }
+            break;
+
+        case PREDICTIVE_SELECTION:
+            // 这里可以根据传感器采样频率、FIFO 占用率等进行优化选择
+            for (int i = 0; i < 6; i++) {
+                int current_size = FIFO_GetUsage(fifo_list[i]);
+                float occupancy = (float)current_size / FIFO_GetUsage(fifo_list[i]);  // 计算占用率
+                if (occupancy > 0.75) {  // 如果 FIFO 使用率超过 75%，优先选择
+                    selected_fifo = i;
+                    break;
+                }
+            }
+            selected_fifo = rand() % 6;
+            break;
+
+        default:
+            selected_fifo = 0;  // 默认返回第一个 FIFO
+            break;
+    }
+
+    return selected_fifo;
+}
 
 /**
   * @brief Retargets the C library msg_info function to the USART.

@@ -10,7 +10,7 @@ extern volatile uint32_t missed_updates;    // 丢失的传感器更新次数
 extern volatile uint32_t total_sensor_reads; // 传感器读取总数
 
 // **函数声明**
-void log_sensor_event(const char *sensor_name, float value, uint32_t timestamp);
+// void log_sensor_event(const char *sensor_name, float value, uint32_t timestamp);
 void log_response_delay(uint32_t trigger_time, const char *event);
 void log_missed_percentage(void);
 void log_average_latency(void);

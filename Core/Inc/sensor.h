@@ -39,12 +39,31 @@
 
 #define MAX_SENSOR_DIM 3  // 最大维度，例如 3 轴加速度
 
+
+#define TIMER_INTERVAL_MS 500  // 定时器中断间隔 500ms
+// 各传感器触发周期 (单位: ms)
+#define TEMP_TRIGGER_PERIOD     1000   // 1s 触发
+#define HUMIDITY_TRIGGER_PERIOD 1000   // 1s 触发
+#define PRESSURE_TRIGGER_PERIOD 1500   // 1.5s 触发
+#define ACCEL_TRIGGER_PERIOD    500    // 0.5s 触发
+#define GYRO_TRIGGER_PERIOD     500    // 0.5s 触发
+#define MAG_TRIGGER_PERIOD      1000   // 1s 触发
+
+
 // 传感器数据结构体
 typedef struct {
     float value[MAX_SENSOR_DIM];  // 允许 1D 或 3D 数据
     uint8_t dim;  // 数据维度（1 = 单值，3 = 三轴）
     uint32_t timestamp;  // 读取时间戳
 } SensorData;
+
+// 异常数据变量
+extern volatile SensorData temp_alarm_data;
+extern volatile SensorData humidity_alarm_data;
+extern volatile SensorData pressure_alarm_data;
+extern volatile SensorData accel_alarm_data;
+extern volatile SensorData gyro_alarm_data;
+extern volatile SensorData mag_alarm_data;
 
 // 时间戳获取函数
 uint32_t get_Timestamp(void);

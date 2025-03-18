@@ -72,9 +72,9 @@ SensorData get_Humidity(void) {
 SensorData get_Acceleration(void) {
     SensorData data;
     BSP_ACCELERO_AccGetXYZ(pDataXYZ);
-    data.value[0] = pDataXYZ[0];
-    data.value[1] = pDataXYZ[1];
-    data.value[2] = pDataXYZ[2];
+    data.value[0] = pDataXYZ[0] / 1000.0f;
+    data.value[1] = pDataXYZ[1] / 1000.0f;
+    data.value[2] = pDataXYZ[2] / 1000.0f;
     data.dim = 3;  // 三轴数据
     data.timestamp = get_Timestamp();
     return data;
@@ -83,9 +83,9 @@ SensorData get_Acceleration(void) {
 SensorData get_Gyroscope(void) {
     SensorData data;
     BSP_GYRO_GetXYZ(pGyroDataXYZ);
-    data.value[0] = pGyroDataXYZ[0];
-    data.value[1] = pGyroDataXYZ[1];
-    data.value[2] = pGyroDataXYZ[2];
+    data.value[0] = pGyroDataXYZ[0] / 1000.0f;
+    data.value[1] = pGyroDataXYZ[1] / 1000.0f;
+    data.value[2] = pGyroDataXYZ[2] / 1000.0f;
     data.dim = 3;
     data.timestamp = get_Timestamp();
     return data;
